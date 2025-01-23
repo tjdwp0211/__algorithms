@@ -1,41 +1,63 @@
-const INPUT_1 = [
-  ["ICN", "JFK"],
-  ["HND", "IAD"],
-  ["JFK", "HND"],
-];
-const INPUT_2 = [
-  ["ICN", "SFO"],
-  ["ICN", "SFO"],
-  ["ICN", "SFO"],
-  ["ICN", "SFO"],
-  ["ICN", "ATL"],
+const INPUT = [
+  [
+    ["ICN", "JFK"],
+    ["HND", "IAD"],
+    ["JFK", "HND"],
+  ],
+  [
+    ["ICN", "SFO"],
+    ["ICN", "ATL"],
+    ["SFO", "ATL"],
+    ["ATL", "ICN"],
+    ["ATL", "SFO"],
+  ],
 
-  ["SFO", "ATL"],
-  ["ATL", "ICN"],
-  ["ATL", "SFO"],
-];
-
-const INPUT_3 = [
-  ["ICN", "BBB"],
-  ["BBB", "ICN"],
-  ["ICN", "AAA"],
+  [
+    ["ICN", "BBB"],
+    ["BBB", "ICN"],
+    ["ICN", "AAA"],
+  ],
 ];
 
 const graph = {};
-const visited = [];
+const routes = [];
 
-function DFS({ curAirport }) {
-  while (graph[curAirport] && graph[curAirport].length > 0) {
-    const next = graph[curAirport].shift();
-    DFS({ curAirport: next });
+const preOutWhile = [];
+const postInWhile = [];
+const postOutWhile = [];
+
+function printGraph({ prefix }) {
+  Object.keys(graph).forEach(key => console.log(`${prefix}`, graph[key]));
+}
+
+function DFS({ currentAirport }) {
+  while (graph[currentAirport] && graph[currentAirport].length > 0) {
+    const next = graph[currentAirport].shift();
+    DFS({ currentAirport: next });
   }
-  visited.push(curAirport);
+  routes.push(currentAirport);
+}
+
+function DFS_TEST({ currentAirport }) {
+  preOutWhile.push(currentAirport); // <===== BREFORE reverse INPUT[1]:
+  // [ 'ICN', 'ATL', 'ICN', 'SFO', 'ATL', 'SFO' ]
+
+  while (graph[currentAirport] && graph[currentAirport].length > 0) {
+    const next = graph[currentAirport].shift();
+    DFS({ currentAirport: next });
+
+    postInWhile.push(currentAirport); // <===== BREFORE reverse INPUT[1]:
+    // [ 'ATL', 'SFO', 'ICN', 'ATL', 'ICN' ]
+  }
+
+  postOutWhile.push(currentAirport); // <===== BREFORE reverse INPUT[1]:
+  // [ 'SFO', 'ATL', 'SFO', 'ICN', 'ATL', 'ICN' ]
 }
 
 function solution(tickets) {
   tickets.forEach(([from, to]) => {
     if (!graph[from]) graph[from] = [];
-    if (!graph[to]) graph[to] = [];
+    if (!graph[from]) graph[to] = [];
 
     graph[from].push(to);
   });
@@ -44,9 +66,9 @@ function solution(tickets) {
     graph[key].sort();
   });
 
-  DFS({ curAirport: "ICN" });
+  DFS({ currentAirport: "ICN" });
 
-  return visited;
+  return routes.reverse();
 }
 
-console.log(solution(INPUT_3));
+console.log(solution(INPUT[1]));
