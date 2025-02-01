@@ -12,7 +12,6 @@ Y_VECTOR = [-1, 1, 0, 0]
 N = int(input())
 order = input().split()
 matrix = [[0] * N for _ in range(N)]
-print(order)
 
 dictionary = {'L': 0,'R': 1,'U': 2,'D': 3}
 
@@ -23,8 +22,6 @@ for dir in order:
 
     nextX = currentLocation[0] + dx
     nextY = currentLocation[1] + dy
-
-    print(nextX, nextY)
 
     if 0 <= nextX < N and 0 <= nextY < N:
         currentLocation = (nextX, nextY)
