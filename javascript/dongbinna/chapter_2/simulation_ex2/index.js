@@ -5,7 +5,7 @@
 // O: 00:00:03, 00:13:30, ...
 // X: 00:02:55, 01:27:45, ...
 
-const DIRECTORY = `./javascript/dongbinna/chater2/simulation_ex2/input.txt`;
+const DIRECTORY = `./javascript/dongbinna/chapter_2/simulation_ex2/input.txt`;
 
 const fs = require("fs");
 const INPUT = fs.readFileSync(DIRECTORY).toString().split("\n").map(Number);

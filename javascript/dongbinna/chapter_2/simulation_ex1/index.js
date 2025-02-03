@@ -3,7 +3,7 @@
 // L R U D
 // 벗어나는 움직임은 무시해야 함.
 
-const DIRECTORY = `./javascript/dongbinna/chater2/simulation_ex1/input.txt`;
+const DIRECTORY = `./javascript/dongbinna/chapter_2/simulation_ex1/input.txt`;
 
 const fs = require("fs");
 const INPUT = fs.readFileSync(DIRECTORY).toString().split("\n");
