@@ -1,3 +1,22 @@
+/**
+ * size():
+ * 현재 아이템의 갯수 조회
+ *
+ * swap(idx1, idx2):
+ * idx1과 idx2의 값을 변경
+ *
+ * heafifyDown():
+ * items의 head 값을 빼내면, 해당 함수로 items 내부 우선순위 재정렬
+ *
+ * heafifyUp():
+ * items의 tail에 값을 넣으면, 해당 함수로 items 정렬 삽입
+ *
+ * push(val):
+ * value를 items의 tail에 삽입
+ *
+ * pop():
+ * items의 head의 값을 제거 및 return
+ */
 class MinHeap {
   constructor() {
     this.items = [];
@@ -22,6 +41,7 @@ class MinHeap {
     let n = this.size();
 
     while (curIndex < n) {
+      console.log(`IN DOWN: ${this.items}`);
       const left = 2 * curIndex + 1;
       const right = 2 * curIndex + 2;
 
