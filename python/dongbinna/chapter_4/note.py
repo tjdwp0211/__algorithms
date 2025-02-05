@@ -34,25 +34,25 @@ def minQuickSort():
         if startIdx >= endIdx:
             return
         pivot = startIdx
-        incIdx, decIdx = startIdx + 1, endIdx
+        left, right = startIdx + 1, endIdx
 
-        while incIdx <= decIdx:
+        while left <= right:
             # pivot 보다 큰 데이터를 찾을 때까지 반복
-            while incIdx <= endIdx and array[incIdx] <= array[pivot]:
-                incIdx += 1
+            while left <= endIdx and array[left] <= array[pivot]:
+                left += 1
             # pivot 보다 작은 데이터를 찾을 때까지 반복
-            while decIdx > startIdx and array[decIdx] >= array[pivot]:
-                decIdx -= 1
+            while right > startIdx and array[right] >= array[pivot]:
+                right -= 1
 
-            # 엇갈렸다면, 작은 데이터와 피벗을 교체 (참고: 엇갈리게 되면, decIdx 가 더 작은 값이 됨.)
-            if incIdx > decIdx:
-                array[pivot], array[decIdx] = array[decIdx], array[pivot]
+            # 엇갈렸다면, 작은 데이터와 피벗을 교체 (참고: 엇갈리게 되면, right 가 더 작은 값이 됨.)
+            if left > right:
+                array[pivot], array[right] = array[right], array[pivot]
             # 아니라면, 작은 데이터와 큰 데이터를 교체
             else:
-                array[incIdx], array[decIdx] = array[decIdx], array[incIdx]
+                array[left], array[right] = array[right], array[left]
         # 왼쪽과 오른쪽으로 분할 후, 각각 정렬 수행
-        quickSort(array, startIdx, decIdx - 1)
-        quickSort(array, decIdx + 1, endIdx)
+        quickSort(array, startIdx, right - 1)
+        quickSort(array, right + 1, endIdx)
 
     def otherQuickSort(array):
         if len(array) <= 1:
@@ -64,10 +64,13 @@ def minQuickSort():
         rightSide = [x for x in tail if x > pivot]
 
         return otherQuickSort(leftSide) + [pivot] + otherQuickSort(rightSide)
-    # print(otherQuickSort(arr))
 
-    quickSort(arr, 0, len(arr) - 1)
-    print(f'[AFTER] QUICK_SORT: {arr}', end='\n')
+    # quickSort(arr, 0, len(arr) - 1)
+    # print(f'[AFTER] QUICK_SORT: {arr}', end='\n')
+
+    print(f'[AFTER] QUICK_SORT: {otherQuickSort(arr)}')
+
+
 
 minSortBySelect()
 minSortByInsert()
