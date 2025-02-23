@@ -12,6 +12,65 @@ for (let tc = 0; tc < TEST_CASE; tc++) {
   const weightList = INPUT.splice(0, 1)[0];
   const xyList = INPUT.splice(0, K);
   const W = INPUT.splice(0, 1)[0][0];
+}
+
+/**
+ * @@@@@@@@@@@@@@ 이하 정답 주의 @@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@ 이하 정답 주의 @@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@ 이하 정답 주의 @@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@ 이하 정답 주의 @@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@ 이하 정답 주의 @@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@ 이하 정답 주의 @@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@ 이하 정답 주의 @@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@ 이하 정답 주의 @@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@ 이하 정답 주의 @@@@@@@@@@@@@@
+ */
+
+/** 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+for (let tc = 0; tc < TEST_CASE; tc++) {
+  const [N, K] = INPUT.splice(0, 1)[0];
+  const weightList = INPUT.splice(0, 1)[0];
+  const xyList = INPUT.splice(0, K);
+  const W = INPUT.splice(0, 1)[0][0];
 
   const queue = [];
   const graph = Array.from({ length: N + 1 }, () => []);
@@ -50,3 +109,5 @@ for (let tc = 0; tc < TEST_CASE; tc++) {
   }
   console.log(memo[W]);
 }
+
+ */
