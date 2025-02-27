@@ -1,0 +1,37 @@
+CABAB
+CBABA
+=> 4
+CBAB
+
+
+
+AA
+AAAA
+=> 2
+AA
+
+
+ABABAB
+AAA
+=> 3
+AAA
+
+
+
+ABBAABBA
+AABAB
+=> 4
+AABA
+
+
+ABACA
+BC
+=> 2
+BC
+
+
+
+ACAYKP
+CAPCAK
+=> 4
+ACAK
