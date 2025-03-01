@@ -9,9 +9,49 @@ const [TEST_CASE, ...INPUT] = fs
 
 for (let tc = 0; tc < TEST_CASE; tc++) {
   const [N, K] = INPUT.splice(0, 1)[0];
-  const weightList = INPUT.splice(0, 1)[0];
+  const delayList = INPUT.splice(0, 1)[0];
   const xyList = INPUT.splice(0, K);
   const W = INPUT.splice(0, 1)[0][0];
+
+  const graph = Array.from({ length: N + 1 }, () => []);
+  const indegreeCountList = Array.from({ length: N + 1 }, () => 0);
+  const memoDelay = Array.from({ length: N + 1 }, () => 0);
+  const queue = [];
+
+  for (let [from, to] of xyList) {
+    graph[from].push(to);
+    indegreeCountList[to] += 1;
+  }
+
+  for (let node = 1; node < N + 1; node++) {
+    if (indegreeCountList[node] === 0) {
+      queue.push({ compare: delayList[node - 1], node });
+      queue.sort((a, b) => b.compare - a.compare);
+      memoDelay[node] = delayList[node - 1];
+    }
+  }
+
+  while (queue.length > 0) {
+    const { node: curNode } = queue.shift();
+
+    if (curNode === W) {
+      break;
+    }
+
+    for (let nextNode of graph[curNode]) {
+      indegreeCountList[nextNode] -= 1;
+      memoDelay[nextNode] = Math.max(memoDelay[nextNode], memoDelay[curNode] + delayList[nextNode - 1]);
+      // console.log("CURR:", curNode, "| NEXT:", nextNode);
+      // console.log("MEMO:", memoDelay);
+      // console.log("INDE:", indegreeCountList);
+      // console.log();
+      if (indegreeCountList[nextNode] === 0) {
+        queue.push({ node: nextNode, compare: memoDelay[nextNode] });
+        queue.sort((a, b) => b.compare - a.compare);
+      }
+    }
+  }
+  console.log(memoDelay[W]);
 }
 
 /**
