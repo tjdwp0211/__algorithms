@@ -2,7 +2,7 @@ package BOJ;
 
 import java.io.*;
 
-public class Main_기술연계마스터임스_25497 {
+public class 기술연계마스터임스 {
     
 	public static void main(String[] args) throws IOException {
 		BufferedReader bfReader = new BufferedReader(new InputStreamReader(System.in));

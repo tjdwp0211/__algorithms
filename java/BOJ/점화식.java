@@ -2,7 +2,7 @@ package BOJ;
 
 import java.io.*;
 
-public class Main_점화식_13699 {
+public class 점화식 {
     public static void main(String[] args) throws IOException {
 		BufferedReader bfReader = new BufferedReader(new InputStreamReader(System.in));
 

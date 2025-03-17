@@ -3,7 +3,7 @@ package SWEA.algoSWEA;
 import java.io.*;
 import java.util.*;
 
-public class Main_수식고치기_13220 {
+public class 수식고치기 {
 	static char decodingString(char input, char changeTo) {
 		if (input == 'x') {
 			return changeTo;

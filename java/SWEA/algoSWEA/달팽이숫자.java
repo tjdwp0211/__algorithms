@@ -2,7 +2,7 @@ package SWEA.algoSWEA;
 
 import java.io.*;
 
-public class Main_달팽이숫자_1954 {
+public class 달팽이숫자 {
     static int[] dCol = { 0, 1, 0, -1 };
 	static int[] dRow = { 1, 0, -1, 0 };
 	static int[][] arr;

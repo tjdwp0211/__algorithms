@@ -2,7 +2,7 @@ package SWEA.algoSWEA;
 
 import java.io.*;
 
-public class Main_평행사변형_15941 {
+public class 평행사변형 {
     public static void main(String[] args) throws IOException {
 		BufferedReader bfReader = new BufferedReader(new InputStreamReader(System.in));
 		

@@ -3,7 +3,7 @@ package SWEA.algoSWEA;
 import java.io.*;
 import java.util.*;
 
-public class Main_괄호짝짓기_1218 {
+public class 괄호짝짓기 {
     static Stack<String> stack;
 
 	public static void main(String[] args) throws IOException {

@@ -3,7 +3,7 @@ package BOJ;
 import java.io.*;
 import java.util.*;
 
-public class Main_창고다각형_2304 {
+public class 창고다각형 {
 	static int calculation(int[][] arr, int maxHeight) {
 		int curRow = arr[0][0], curCol = arr[0][1], returnVal = 0;
 		for (int i = 1; i < arr.length; i++) {
