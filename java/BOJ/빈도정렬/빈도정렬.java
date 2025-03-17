@@ -1,4 +1,4 @@
-package BOJ;
+package BOJ.빈도정렬;
 
 import java.io.*;
 import java.util.*;

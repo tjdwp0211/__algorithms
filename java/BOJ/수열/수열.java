@@ -1,4 +1,4 @@
-package BOJ;
+package BOJ.수열;
 
 import java.io.*;
 import java.util.*;

@@ -1,4 +1,4 @@
-package BOJ;
+package BOJ.점화식;
 
 import java.io.*;
 

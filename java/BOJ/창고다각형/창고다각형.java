@@ -1,4 +1,4 @@
-package BOJ;
+package BOJ.창고다각형;
 
 import java.io.*;
 import java.util.*;

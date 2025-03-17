@@ -1,4 +1,4 @@
-package BOJ;
+package BOJ.기술연계마스터임스;
 
 import java.io.*;
 

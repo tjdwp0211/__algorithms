@@ -1,4 +1,4 @@
-package BOJ;
+package BOJ.체스판_다시_칠하기;
 
 import java.io.*;
 import java.util.*;
