@@ -9,7 +9,9 @@ public class 수_찾기 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         StringTokenizer st;
+
 
         N = Integer.parseInt(br.readLine());
         numberList = new long[N];
@@ -28,8 +30,9 @@ public class 수_찾기 {
         Arrays.sort(numberList);
         for (int t = 0; t < M; t++) {
             int isInList = binarySearch(targetNumberList[t]);
-            System.out.println(isInList);
+            sb.append(isInList + "\n");
         }
+        System.out.println(sb);
     }
 
 
