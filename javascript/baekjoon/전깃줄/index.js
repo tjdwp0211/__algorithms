@@ -9,22 +9,165 @@ let [N, ...edges] = fs
   .trim()
   .split("\n")
   .map((input, i) => (i === 0 ? Number(input) : input.split(" ").map(Number)));
+
 edges = edges.sort((a, b) => a[A] - b[A]);
 
 const dp = Array.from({ length: N }, () => 1);
+dp[1] = 1;
 
 for (let i = 1; i < N; i++) {
-  const selectedEdge = edges[i];
-
   for (let j = 0; j < i; j++) {
-    const previousEdge = edges[j];
-    if (previousEdge[B] < selectedEdge[B]) {
+    if (edges[j][B] < edges[i][B]) {
       dp[i] = Math.max(dp[i], dp[j] + 1);
     }
   }
 }
 
 console.log(N - Math.max(...dp));
+
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+// edges = edges.sort((a, b) => a[A] - b[A]);
+
+// const dp = Array.from({ length: N }, () => 1);
+
+// for (let i = 1; i < N; i++) {
+//   const selectedEdge = edges[i];
+
+//   for (let j = 0; j < i; j++) {
+//     const previousEdge = edges[j];
+//     if (previousEdge[B] < selectedEdge[B]) {
+//       dp[i] = Math.max(dp[i], dp[j] + 1);
+//     }
+//   }
+// }
+
+// console.log(N - Math.max(...dp));
 
 /**
  * 이하 시도한 반례.
