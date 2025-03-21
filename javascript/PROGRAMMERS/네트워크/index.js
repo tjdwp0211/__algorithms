@@ -1,42 +1,27 @@
-const INPUT_1 = {
-  N: 3,
-  MATRIX: [
-    [1, 1, 0],
-    [1, 1, 0],
-    [0, 0, 1],
-  ],
-};
-const INPUT_2 = {
-  N: 3,
-  MATRIX: [
-    [1, 1, 0],
-    [1, 1, 1],
-    [0, 1, 1],
-  ],
-};
+function solution(N, computers) {
+  const visited = Array.from({ length: N }, () => false);
+  let response = 0;
 
-let result = 0;
+  /** ===== MAIN LOGIC ===== */
+  return (function main() {
+    for (let node = 0; node < N; node++) {
+      if (!visited[node]) {
+        dfs(node);
+        response += 1;
+      }
+    }
 
-function DFS({ curNode, matrix, visited, depth }) {
-  visited[curNode] = true;
+    return response;
+  })();
+  /** ===== MAIN LOGIC ===== */
 
-  for (let nextNode = 0; nextNode < matrix.length; nextNode++) {
-    if (matrix[curNode][nextNode] && !visited[nextNode]) {
-      DFS({ curNode: nextNode, depth: depth + 1, matrix, visited });
+  function dfs(curNode) {
+    visited[curNode] = true;
+
+    for (let [next, isLinked] of computers[curNode].entries()) {
+      if (isLinked === 1 && !visited[next]) {
+        dfs(next);
+      }
     }
   }
 }
-
-function solution(n, computers) {
-  const visited = Array.from({ length: n }).fill(false);
-
-  for (let v = 0; v < n; v++) {
-    if (!visited[v]) {
-      DFS({ curNode: v, depth: 0, matrix: computers, visited });
-      result += 1;
-    }
-  }
-  return result;
-}
-
-console.log(solution(INPUT_1.N, INPUT_1.MATRIX));
