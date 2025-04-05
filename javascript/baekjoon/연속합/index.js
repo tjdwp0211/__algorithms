@@ -7,14 +7,138 @@ const [N, sequence] = fs
   .split("\n")
   .map((input, i) => (i === 0 ? Number(input) : input.split(" ").map(Number)));
 
-const dp = Array.from({ length: N + 1 }, () => 0);
-dp[1] = sequence[0];
+const dp = Array.from({ length: N }, () => 0);
+dp[0] = sequence[0];
 
-for (let i = 2; i < N + 1; i++) {
+for (let i = 1; i < N; i++) {
   if (dp[i - 1] < 0) {
-    dp[i] = sequence[i - 1];
+    dp[i] = sequence[i];
   } else {
-    dp[i] = dp[i - 1] + sequence[i - 1];
+    dp[i] += dp[i - 1] + sequence[i];
   }
 }
-console.log(Math.max(...dp.slice(1)));
+
+// console.log(dp);
+console.log(Math.max(...dp));
+
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+// const dp = Array.from({ length: N + 1 }, () => 0);
+// dp[1] = sequence[0];
+
+// for (let i = 2; i < N + 1; i++) {
+//   if (dp[i - 1] < 0) {
+//     dp[i] = sequence[i - 1];
+//   } else {
+//     dp[i] = dp[i - 1] + sequence[i - 1];
+//   }
+// }
+// console.log(Math.max(...dp.slice(1)));
